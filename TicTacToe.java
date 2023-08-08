@@ -21,6 +21,7 @@ public class TicTacToe{
                         System.out.println("1.Player vs Player");
                         System.out.println("2.Player vs Computer");
                         System.out.println("3.Go back to Menu");
+                        System.out.print("Enter your option: ");
                         int mode=sc.nextInt();
                         if(mode==1){
                             gameselect=true;
@@ -28,6 +29,7 @@ public class TicTacToe{
                         }
                         else if(mode==2){
                             gameselect=true;
+                            playervsComputer();
                         }
                         else if(mode==3){
                             gameselect=true;
@@ -48,6 +50,19 @@ public class TicTacToe{
         }
     }
 
+    public static void playervsComputer() {
+        char[][] board=new char[3][3];
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                board[i][j]=' ';
+            }
+        }
+        boolean gameover=false;
+        System.out.print("Enter player1's name :");
+        String dummy=sc.nextLine();//for consuming <space> from before input
+        String player1=sc.nextLine();
+    }
+
     public static void playervsplayer() {
         char[][] board=new char[3][3];
         for (int i = 0; i < board.length; i++) {
@@ -56,16 +71,35 @@ public class TicTacToe{
             }
         }
         boolean gameover=false;
+        System.out.print("Enter player1's name :");
+        String dummy=sc.nextLine();//for consuming <space> from before input
+        String player1=sc.nextLine();
+        System.out.print("Enter player2's name :");
+        String player2=sc.nextLine();
         char player='X';
         while(!gameover){
+            if(boardfull(board)){
+                System.out.println("Game Ties");
+                break;
+            }
             showboard(board);
-            System.out.println("player "+ player+"'s Turn");
+            if(player=='X'){
+                System.out.println("player "+ player1+"'s Turn");
+            }
+            else{
+                System.out.println("player "+ player2+"'s Turn");
+            }
             System.out.print("Enter box no : ");
             int pos=sc.nextInt()-1;
             if(board[pos/3][pos%3]==' '){
                 board[pos/3][pos%3]=player;
                 if(checkwin(board,player)){
-                    System.out.println("Player "+player+" wins");
+                    if(player=='X'){
+                            System.out.println("Player "+ player1+" wins");
+                        }
+                        else{
+                            System.out.println("Player "+ player2+" wins");
+                        }
                     gameover=true;
                 }
                 else{
@@ -80,11 +114,20 @@ public class TicTacToe{
             else{
                 System.out.println("Invalid move. Try again!");
             }
-
-
         }
 
 
+    }
+
+    public static boolean boardfull(char[][] board) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if(board[i][j]==' '){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public static void showboard(char[][] board) {
