@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class TicTacToe{
     
     static Scanner sc=new Scanner(System.in);
@@ -29,7 +28,8 @@ public class TicTacToe{
                         }
                         else if(mode==2){
                             gameselect=true;
-                            playervsComputer();
+                            PlayervsComputer obj=new PlayervsComputer();
+                            obj.playervsComputer();
                         }
                         else if(mode==3){
                             gameselect=true;
@@ -48,19 +48,6 @@ public class TicTacToe{
                 System.out.println("Invalid Option.Choose again.");
             }
         }
-    }
-
-    public static void playervsComputer() {
-        char[][] board=new char[3][3];
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                board[i][j]=' ';
-            }
-        }
-        boolean gameover=false;
-        System.out.print("Enter player1's name :");
-        String dummy=sc.nextLine();//for consuming <space> from before input
-        String player1=sc.nextLine();
     }
 
     public static void playervsplayer() {
