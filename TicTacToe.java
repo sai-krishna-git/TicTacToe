@@ -84,6 +84,7 @@ public class TicTacToe{
             if(board[pos/3][pos%3]==' '){
                 board[pos/3][pos%3]=player;
                 if(checkwin(board,player)){
+                    showboard(board);
                     if(player=='X'){
                             System.out.println("Player "+ player1+" wins");
                         }
