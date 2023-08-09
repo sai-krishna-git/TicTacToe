@@ -13,9 +13,14 @@ public class PlayervsComputer {
         boolean gameover=false;
         System.out.print("Enter player's name :");
         String player1=sc.nextLine();
-        char player='X';
+        System.out.println("Remember the Box no's :");
+        obj.showboardno(board);
+        System.out.println("Game Starts!!!");
+        char player='O';
         while(!gameover){
+                obj.showboard(board);
             if(obj.checkwin(board,player)){
+                obj.showboard(board);
                         if(player=='O'){
                                 System.out.println("Player "+ player1+" wins");
                             }
@@ -26,19 +31,14 @@ public class PlayervsComputer {
                     }
             if(obj.boardfull(board)){
                 System.out.println("Game Ties");
-                break;
+                gameover=true;
             }
-            if(player=='X'){
+            else if(player=='X'){
                 System.out.println("Computer's Turn");
                 bestmove(board);
-                obj.showboard(board);
                 if(obj.checkwin(board,player)){
-                        if(player=='O'){
-                                System.out.println("Player "+ player1+" wins");
-                            }
-                            else{
-                                System.out.println("Computer wins");
-                            }
+                        obj.showboard(board);
+                        System.out.println("Computer wins");
                         gameover=true;
                     }
                     
@@ -54,14 +54,9 @@ public class PlayervsComputer {
                 else{
                     System.out.println("Invalid move. Try again!");
                 }
-            obj.showboard(board);
                 if(obj.checkwin(board,player)){
-                        if(player=='O'){
-                                System.out.println("Player "+ player1+" wins");
-                            }
-                            else{
-                                System.out.println("Computer wins");
-                            }
+                        obj.showboard(board);
+                        System.out.println("Player "+ player1+" wins");
                         gameover=true;
                     }    
                 player='X';

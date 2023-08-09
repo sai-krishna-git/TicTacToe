@@ -63,6 +63,9 @@ public class TicTacToe{
         String player1=sc.nextLine();
         System.out.print("Enter player2's name :");
         String player2=sc.nextLine();
+        System.out.println("Remember the Box no's :");
+        showboardno(board);
+        System.out.println("Game Starts!!!");
         char player='X';
         while(!gameover){
             if(boardfull(board)){
@@ -121,6 +124,14 @@ public class TicTacToe{
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 System.out.print(board[i][j]+"|");
+            }
+            System.out.println();
+        }
+    }
+    public static void showboardno(char[][] board) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                System.out.print((3*i+j+1)+"|");
             }
             System.out.println();
         }
