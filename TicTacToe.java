@@ -3,11 +3,19 @@ public class TicTacToe{
     
     static Scanner sc=new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("hi I am Sai Krishna.Enjoy playing the game:)");
+
+        System.out.println("╔═══╦═══╦═══╗");
+        System.out.println("║ T ║ i ║ c ║");
+        System.out.println("╠═══╬═══╬═══╣");
+        System.out.println("║ T ║ a ║ c ║");
+        System.out.println("╠═══╬═══╬═══╣");
+        System.out.println("║ T ║ o ║ e ║");
+        System.out.println("╚═══╩═══╩═══╝");
+        System.out.print("Hi I am Sai Krishna.Enjoy playing the game:)");
         System.out.println("Choose your option");
         boolean optselect=false;
-        while(optselect==false){ 
-            System.out.println("Game Menu");
+        while(!optselect){
+            System.out.println("Game Menu :");
             System.out.println("1.Play");
             System.out.println("2.exit");
             System.out.print("Enter your option: ");
@@ -15,7 +23,7 @@ public class TicTacToe{
             if(option==1){
                 optselect=true;
                 boolean gameselect=false;
-                    while(gameselect==false){ 
+                    while(!gameselect){
                         System.out.println("Choose the game mode");
                         System.out.println("1.Player vs Player");
                         System.out.println("2.Player vs Computer");
@@ -59,7 +67,7 @@ public class TicTacToe{
         }
         boolean gameover=false;
         System.out.print("Enter player1's name :");
-        String dummy=sc.nextLine();//for consuming <space> from before input
+        String dummy=sc.nextLine();//for consuming <space> from previous input
         String player1=sc.nextLine();
         System.out.print("Enter player2's name :");
         String player2=sc.nextLine();

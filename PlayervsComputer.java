@@ -75,12 +75,11 @@ public class PlayervsComputer {
                     board[i][j]=' ';
                     if(score>bestScore){
                         bestScore=score;
-                        pos=3*i+j+1;
+                        pos=3*i+j;
                     }
                 }
             }
         }
-        pos--;
         board[pos/3][pos%3]='X';
     }
     public static int minmax(char[][] board,int depth,boolean ismaximizing) {
